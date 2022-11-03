@@ -19,11 +19,16 @@ export default function Login(props) {
     <Dashboard />
   ) : (
     <div className='App'>
-      {/* <Box component='span'> */}
-      <Typography align='left' variant='h6' sx={{ backgroundColor: 'primary' }}>
-        My Music App
-      </Typography>
-      {/* </Box> */}
+      <div className='title'>
+        <Typography
+          align='left'
+          variant='h6'
+          sx={{ backgroundColor: 'primary' }}
+        >
+          My Music App
+        </Typography>
+      </div>
+
       <form>
         <TextField
           required
