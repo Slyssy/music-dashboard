@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Typography } from '@mui/material';
-import Box from './Box';
+import Dashboard from './Dashboard';
+
 import '.././App.css';
 
 export default function Login(props) {
@@ -10,7 +11,13 @@ export default function Login(props) {
     console.log('UPDATED', isLoggedIn);
   }, [isLoggedIn]);
 
-  return (
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  return isLoggedIn ? (
+    <Dashboard />
+  ) : (
     <div className='App'>
       {/* <Box component='span'> */}
       <Typography align='left' variant='h6' sx={{ backgroundColor: 'primary' }}>
@@ -32,7 +39,12 @@ export default function Login(props) {
           variant='standard'
           fullWidth={true}
         ></TextField>
-        <Button variant='contained' size='small' fullWidth={true}>
+        <Button
+          onClick={handleLogin}
+          variant='contained'
+          size='small'
+          fullWidth={true}
+        >
           LOGIN
         </Button>
       </form>
