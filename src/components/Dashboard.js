@@ -18,7 +18,12 @@ export default function Dashboard(props) {
         </Typography>
       </div>
       <div className='subtitle'>
-        <Typography align='left' variant='h5' color='text.secondary'>
+        <Typography
+          align='left'
+          variant='h5'
+          color='text.secondary'
+          fontWeight={600}
+        >
           Welcome User!
         </Typography>
       </div>
@@ -33,6 +38,16 @@ export default function Dashboard(props) {
           <SoundQuality />
         </article>
       </main>
+      <div className='subtitle'>
+        <Typography
+          align='left'
+          variant='h6'
+          color='text.primary'
+          fontWeight={700}
+        >
+          System Notifications:
+        </Typography>
+      </div>
     </div>
   );
 }

@@ -13,8 +13,11 @@ export default function DropDown() {
 
   return (
     <div>
-      <FormControl variant='standard' sx={{ m: 1, minWidth: 200 }}>
-        <InputLabel id='demo-simple-select-standard-label'>Age</InputLabel>
+      <FormControl
+        variant='standard'
+        sx={{ m: 1, minWidth: 200, marginTop: 0 }}
+      >
+        <InputLabel id='demo-simple-select-standard-label'>Normal</InputLabel>
         <Select
           labelId='demo-simple-select-standard-label'
           id='demo-simple-select-standard'
