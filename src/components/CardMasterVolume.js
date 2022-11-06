@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 
 export default function MasterVolume(props) {
+  // console.log(props);
   //% Component handler functions.
   // * Setting volume by using the event.target from the slider values.
   const handleSlider = (event, volume) => {

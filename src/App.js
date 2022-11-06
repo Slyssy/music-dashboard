@@ -8,7 +8,7 @@ function App(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    console.log('UPDATED', isLoggedIn);
+    // console.log('UPDATED', isLoggedIn);
   }, [isLoggedIn]);
 
   return (

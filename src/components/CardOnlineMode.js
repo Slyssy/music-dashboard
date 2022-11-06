@@ -8,6 +8,7 @@ import Switch from '@mui/material/Switch';
 const label = { inputProps: { 'aria-label': 'Online Mode' } };
 
 export default function OnlineMode(props) {
+  // console.log(props);
   //% Component handler functions.
   const handleToggle = () => props.setIsOnline(!props.isOnline);
   return (

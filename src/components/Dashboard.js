@@ -2,16 +2,21 @@ import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import OnlineCard from './CardOnlineMode';
 import MasterVolume from './CardMasterVolume';
-import SoundQuality from './CardSoundQuality';
+import SelectSoundQuality from './CardSoundQuality';
+// import DropDown from './DropDown'
+
 import '.././App.css';
 
 export default function Dashboard(props) {
   // % Setting state for isOnline to false (lifting state from CardOnlineMode
   // % component).
+  // console.log(props);
   const [isOnline, setIsOnline] = useState(false);
 
   const [volume, setVolume] = useState(30);
-  // console.log(volume);
+
+  const [quality, setQuality] = useState('Normal');
+  // console.log(quality);
   return (
     <main>
       <div className='subtitle'>
@@ -32,7 +37,7 @@ export default function Dashboard(props) {
           <MasterVolume volume={volume} setVolume={setVolume} />
         </article>
         <article className='sound_quality_card'>
-          <SoundQuality />
+          <SelectSoundQuality quality={quality} setQuality={setQuality} />
         </article>
       </section>
       <div className='notifications'>
@@ -56,6 +61,13 @@ export default function Dashboard(props) {
           <Typography align='center' variant='body2' color='red'>
             Listening to music at a high volume could cause long-term hearing
             loss.
+          </Typography>
+        )}
+
+        {quality === 'Low' && (
+          <Typography align='center' variant='body2' color='red'>
+            Music quality is degraded. Increase quality if your connection
+            allows it.
           </Typography>
         )}
       </div>
