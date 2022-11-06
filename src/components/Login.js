@@ -1,58 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import { Button, TextField, Typography } from '@mui/material';
-import Dashboard from './Dashboard';
+import React from 'react';
+import { Button, TextField, Box } from '@mui/material';
+// import Dashboard from './Dashboard';
 
 import '.././App.css';
 
 export default function Login(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    console.log('UPDATED', isLoggedIn);
-  }, [isLoggedIn]);
-
+  // Using setIsLoggedIn prop from App.js
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    props.setIsLoggedIn(true);
   };
 
-  return isLoggedIn ? (
-    <Dashboard />
-  ) : (
-    <div className='App'>
-      <div className='title'>
-        <Typography
-          align='left'
-          variant='h6'
-          sx={{ backgroundColor: 'primary' }}
-        >
-          My Music App
-        </Typography>
-      </div>
-
-      <form>
+  return (
+    <>
+      <Box
+        component='form'
+        sx={{
+          maxWidth: '25ch',
+          display: 'grid',
+          gridGap: '1em',
+          margin: '4em auto',
+        }}
+        noValidate
+        autoComplete='off'
+      >
         <TextField
           required
-          id='standard-basic'
-          label='Username'
+          id='email'
+          label='Email'
           variant='standard'
-          fullWidth={true}
-        ></TextField>
+          type={'email'}
+        />
         <TextField
           required
-          id='standard-basic'
+          id='password'
           label='Password'
           variant='standard'
-          fullWidth={true}
-        ></TextField>
-        <Button
-          onClick={handleLogin}
-          variant='contained'
-          size='small'
-          fullWidth={true}
-        >
+          type={'password'}
+        />
+        <Button variant='contained' fullWidth onClick={handleLogin}>
           LOGIN
         </Button>
-      </form>
-    </div>
+      </Box>
+    </>
   );
 }

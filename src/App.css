@@ -4,46 +4,53 @@
   box-sizing: border-box;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3em;
+main {
+  margin-top: 2em;
+  display: grid;
+  grid-gap: 1.5em;
+  justify-items: center;
 }
 
-form {
-  width: 12%;
+section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  justify-items: center;
+}
+
+.notifications {
+  font-size: 22px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1em;
 }
 
-main {
-  width: 60%;
-  max-width: 800px;
-  display: flex;
-  justify-content: space-between;
-  /* align-items: stretch; */
+/* ! Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .online_card {
+    grid-column: 3/7;
+  }
+  .volume_card {
+    grid-column: 7/11;
+  }
+  .sound_quality_card {
+    grid-column: span 12;
+  }
 }
 
-.title {
-  background-color: #3f51b5ff;
-  color: white;
-  width: 100%;
-  padding: 0.5em;
-}
-
-.subtitle {
-  width: 60%;
-  max-width: 800px;
-}
-
-.MuiPaper-root {
-  height: 100%;
-}
-
-.MuiFormControl-root {
-  height: 40px;
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  section {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+  }
 }

@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import OnlineCard from './CardOnlineMode';
 import MasterVolume from './CardMasterVolume';
@@ -6,17 +6,14 @@ import SoundQuality from './CardSoundQuality';
 import '.././App.css';
 
 export default function Dashboard(props) {
+  // % Setting state for isOnline to false (lifting state from CardOnlineMode
+  // % component).
+  const [isOnline, setIsOnline] = useState(false);
+
+  const [volume, setVolume] = useState(30);
+  // console.log(volume);
   return (
-    <div className='App'>
-      <div className='title'>
-        <Typography
-          align='left'
-          variant='h6'
-          sx={{ backgroundColor: 'primary' }}
-        >
-          My Music App
-        </Typography>
-      </div>
+    <main>
       <div className='subtitle'>
         <Typography
           align='left'
@@ -27,18 +24,18 @@ export default function Dashboard(props) {
           Welcome User!
         </Typography>
       </div>
-      <main>
-        <article>
-          <OnlineCard />
+      <section>
+        <article className='online_card'>
+          <OnlineCard isOnline={isOnline} setIsOnline={setIsOnline} />
         </article>
-        <article>
-          <MasterVolume />
+        <article className='volume_card'>
+          <MasterVolume volume={volume} setVolume={setVolume} />
         </article>
-        <article>
+        <article className='sound_quality_card'>
           <SoundQuality />
         </article>
-      </main>
-      <div className='subtitle'>
+      </section>
+      <div className='notifications'>
         <Typography
           align='left'
           variant='h6'
@@ -47,7 +44,21 @@ export default function Dashboard(props) {
         >
           System Notifications:
         </Typography>
+        {/* If isOnline is false we return a message. */}
+        {isOnline && (
+          <Typography align='center' variant='body2' color='red'>
+            Your application is offline. You won't be able to share or stream
+            music to other devices.
+          </Typography>
+        )}
+
+        {volume > 80 && (
+          <Typography align='center' variant='body2' color='red'>
+            Listening to music at a high volume could cause long-term hearing
+            loss.
+          </Typography>
+        )}
       </div>
-    </div>
+    </main>
   );
 }

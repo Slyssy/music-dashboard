@@ -12,11 +12,8 @@ export default function DropDown() {
   };
 
   return (
-    <div>
-      <FormControl
-        variant='standard'
-        sx={{ m: 1, minWidth: 200, marginTop: 0 }}
-      >
+    <div className='dropdown'>
+      <FormControl variant='standard' sx={{ minWidth: 200, marginTop: 0 }}>
         <InputLabel id='demo-simple-select-standard-label'>Normal</InputLabel>
         <Select
           labelId='demo-simple-select-standard-label'
@@ -25,9 +22,9 @@ export default function DropDown() {
           onChange={handleChange}
           label='Normal'
         >
-          <MenuItem>Poor</MenuItem>
+          <MenuItem>Low</MenuItem>
           <MenuItem>Normal</MenuItem>
-          <MenuItem>Excellent</MenuItem>
+          <MenuItem>High</MenuItem>
         </Select>
       </FormControl>
     </div>

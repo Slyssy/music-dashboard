@@ -1,32 +1,32 @@
-import * as React from 'react';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Switch,
-  Typography,
-} from '@mui/material';
+import React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
 
-export default function OnlineCard() {
+const label = { inputProps: { 'aria-label': 'Online Mode' } };
+
+export default function OnlineMode(props) {
+  //% Component handler functions.
+  const handleToggle = () => props.setIsOnline(!props.isOnline);
   return (
-    <Card sx={{ minWidth: 225 }}>
+    <Card sx={{ maxWidth: 275 }}>
       <CardContent>
-        <Typography
-          sx={{ fontSize: 18 }}
-          color='text.primary'
-          variant='h6'
-          gutterBottom
-        >
+        <Typography variant='h6' component='div'>
           Online Mode
         </Typography>
-
-        <Typography variant='body2'>
-          Is this application connected
-          <br /> to the internet?
+        <Typography sx={{ marginTop: 2 }} variant='body2'>
+          Is this application connected to the internet?
         </Typography>
       </CardContent>
       <CardActions>
-        <Switch defaultChecked color='error' />
+        <Switch
+          onChange={handleToggle}
+          {...label}
+          defaultChecked
+          color='success'
+        />
       </CardActions>
     </Card>
   );
